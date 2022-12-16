@@ -1,0 +1,35 @@
+const express = require('express');
+const server = express();
+// get post patch put delete or CRUD
+// http://localhost:3000/ Localhost
+
+
+server.get("/", ()=>{
+    console.log("we are here");
+});
+
+server.get("/user", (req, res, next)=>{
+    res.status(200).json({name:"Ko Ko", gender:"male", dob:"12/6/1998"});
+});
+
+server.post("/user", (req, res, next)=> {
+    res.status(200).json({msg:"Register Success"})
+});
+
+server.patch("/user/:id/:name", (req, res, next)=> {
+    let id = req.params.id;
+    let name = req.params.name;
+    res.status(200).json({id,name});
+});
+
+server.delete("/user/:id", (req, res, next)=> {
+    let id = req.params.id;
+    res.status(200).json({msg:`Delete id is ${id}`});
+});
+
+// Fallback Function , Be always run the lastest route
+server.get("*", (req, res)=>{
+    res.json({msg:"No API url found"});
+});
+
+server.listen(3000, console.log("Server is running at the port 3000"));
