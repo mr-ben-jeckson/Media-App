@@ -1,5 +1,10 @@
+require('dotenv').config();
+
 const express = require("express");
 const app = express();
+const mongoose = require('mongoose');
+mongoose.set('strictQuery', true);
+mongoose.connect(`mongodb://localhost:27017/${process.env.DB_NAME}`);
 
 app.use(express.json());
 
@@ -13,4 +18,4 @@ app.get("*", (req, res)=> {
     res.status(500).json({msg:"Requested URL API is not founded"});
 });
 
-app.listen(3000, console.log("Server is running at the port 3000"));
+app.listen(process.env.PORT, console.log(`Server is running at the port ${process.env.PORT}`));
