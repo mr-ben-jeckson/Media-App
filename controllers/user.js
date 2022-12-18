@@ -1,17 +1,34 @@
+const DB = require('../dbs/users');
+const Helper = require('../utils/helper');
+
 const all = async(req, res, next) => {
-    res.json({msg:"All Users"});
+    let user = await DB.find();
+    Helper.Fmsg(res, "All Users", user);
 }
 const get = async(req, res, next) => {
-    res.json({msg:"Single User"});
+    let id = req.params.id;
+    let user = await DB.findById(id);
+    Helper.Fmsg(res, "Single User Get", user);
 }
 const add = async(req, res, next) => {
-    res.json({msg:"User created", result:req.body});
+    let saveUser = new DB(req.body);
+    let result = await saveUser.save();
+    Helper.Fmsg(res, "Add User", result);
 }
+
 const patch = async(req, res, next) => {
-    res.json({msg:"Patch User"});
+    let user = await DB.findById(req.params.id);
+    if(user) {
+        await DB.findByIdAndUpdate(user._id, req.body);
+        let retUser = await DB.findById(user._id);
+        Helper.Fmsg(res, "Updated User", retUser);
+    } else {
+        next(new Error("Error, No User with that id"));
+    }
 }
 const drop = async(req, res, next) => {
-    res.json({msg:"Deleted User"});
+    await DB.findByIdAndDelete(req.params.id);
+    Helper.Fmsg(res, "User Deleted");
 }
 module.exports = {
     all,

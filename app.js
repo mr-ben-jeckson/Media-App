@@ -14,6 +14,14 @@ const postRoute = require('./routes/post');
 app.use("/users", userRoute);
 app.use("/posts", postRoute);
 
+app.use((err, req, res, next) => {
+    err.status = err.sattus || 200;
+    res.status(err.status).json({
+        cons: false,
+        msg: err.message
+    });
+});
+
 app.get("*", (req, res)=> {
     res.status(500).json({msg:"Requested URL API is not founded"});
 });
