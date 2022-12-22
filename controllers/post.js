@@ -6,7 +6,7 @@ const all = async (req, res, next) => {
     Helper.Fmsg(res, "All Posts", posts);
 }
 const get = async (req, res, next) => {
-    let post = await DB.findById(req.params.id);
+    let post = await DB.findById(req.params.id).populate('user','-password -__v');
     if(post) {
         Helper.Fmsg(res, "Single Post", post);
     } else {
