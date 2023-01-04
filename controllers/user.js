@@ -1,39 +1,44 @@
-const DB = require('../dbs/users');
+const DB = require('../models/users');
 const Helper = require('../utils/helper');
 
-const all = async(req, res, next) => {
-    let user = await DB.find();
-    Helper.Fmsg(res, "All Users", user);
-}
-const get = async(req, res, next) => {
-    let id = req.params.id;
-    let user = await DB.findById(id);
-    Helper.Fmsg(res, "Single User Get", user);
-}
-const add = async(req, res, next) => {
-    let saveUser = new DB(req.body);
-    let result = await saveUser.save();
-    Helper.Fmsg(res, "Add User", result);
-}
-
-const patch = async(req, res, next) => {
-    let user = await DB.findById(req.params.id);
-    if(user) {
-        await DB.findByIdAndUpdate(user._id, req.body);
-        let retUser = await DB.findById(user._id);
-        Helper.Fmsg(res, "Updated User", retUser);
+const login = async (req, res, next) => {
+    let phoneUser = await DB.findOne({ phone: req.body.phone }).select('-__v');
+    if (phoneUser) {
+        if (Helper.comparePass(req.body.password, phoneUser.password)) {
+            let user = phoneUser.toObject();
+            user.token = Helper.makeToken(user);
+            delete user.password;
+            Helper.Fmsg(res, "Login Successfully", user);
+        } else {
+            next(new Error("Creditential does not match in our records"));
+        }
     } else {
-        next(new Error("Error, No User with that id"));
+        next(new Error("Creditential does not match in our records"));
     }
 }
-const drop = async(req, res, next) => {
-    await DB.findByIdAndDelete(req.params.id);
-    Helper.Fmsg(res, "User Deleted");
+
+const register = async (req, res, next) => {
+    let nameUser = await DB.findOne({ name: req.body.name });
+    if (nameUser) {
+        next(new Error("Name is already taken"));
+        return;
+    }
+    let emailUser = await DB.findOne({ email: req.body.email });
+    if (emailUser) {
+        next(new Error("Email is already taken"));
+        return;
+    }
+    let phoneUser = await DB.findOne({ phone: req.body.phone });
+    if (phoneUser) {
+        next(new Error("Phone number is already taken"));
+        return;
+    }
+    req.body.password = Helper.encode(req.body.password);
+    let result = await new DB(req.body).save();
+    Helper.Fmsg(res, "Register Successfully", result);
 }
+
 module.exports = {
-    all,
-    get,
-    add,
-    patch,
-    drop
+    login,
+    register
 }
