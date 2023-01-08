@@ -45,11 +45,16 @@ const byCatId = async (req, res, next) => {
     let posts = await DB.find({ cat: req.params.id });
     Helper.Fmsg(res, "All Posts by Category", posts);
 }
+const byUserId = async (req, res, next) => {
+    let posts = await DB.find({ user: req.params.id }).populate('user');
+    Helper.Fmsg(res, "All Posts by User", posts);
+}
 module.exports = {
     all,
     get,
     post,
     patch,
     drop,
-    byCatId
+    byCatId,
+    byUserId
 }

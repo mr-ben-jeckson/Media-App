@@ -1,0 +1,587 @@
+{
+	"info": {
+		"_postman_id": "f0737cee-7eb2-48e8-9736-1774b43722e3",
+		"name": "Media",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "6455440"
+	},
+	"item": [
+		{
+			"name": "Post Management",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/63b6d5f564572f0183f11de9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"63b6d5f564572f0183f11de9"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALL POSTS By Category",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/bycat/63b6738d081fba63d5d3daa4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"bycat",
+								"63b6738d081fba63d5d3daa4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALL POSTS By User",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/byuser/63b71386a1c7f9f0f2a1b16c",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"byuser",
+								"63b71386a1c7f9f0f2a1b16c"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1ZTRjM2U0N2M3NzYzNjE5ZjgwMzgiLCJuYW1lIjoiQXVuZyBNeW8iLCJlbWFpbCI6ImF1bmdteW9AZ21haWwuY29tIiwicGhvbmUiOiIwOTk3MjQ5Njg3MSIsInBhc3N3b3JkIjoiJDJhJDEwJFVkbGVaT0l1NVAyOWs0amQ5S2R0Mk9lSDBHbHlQTWtwQXJCRzVzdEZMNi5kaWJueG9ZcUZhIiwiY3JlYXRlZCI6IjIwMjMtMDEtMDRUMjA6NDI6NDMuMzQ3WiIsImlhdCI6MTY3MjkyNjI1OSwiZXhwIjoxNjcyOTM3MDU5fQ.l3LqxpA7Pj8j-CUZjZURNL0gg5EZRlHONJWiKBGrITw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": []
+						},
+						"url": {
+							"raw": "http://localhost:3000/posts/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1ZTRjM2U0N2M3NzYzNjE5ZjgwMzgiLCJuYW1lIjoiQXVuZyBNeW8iLCJlbWFpbCI6ImF1bmdteW9AZ21haWwuY29tIiwicGhvbmUiOiIwOTk3MjQ5Njg3MSIsInBhc3N3b3JkIjoiJDJhJDEwJFVkbGVaT0l1NVAyOWs0amQ5S2R0Mk9lSDBHbHlQTWtwQXJCRzVzdEZMNi5kaWJueG9ZcUZhIiwiY3JlYXRlZCI6IjIwMjMtMDEtMDRUMjA6NDI6NDMuMzQ3WiIsImlhdCI6MTY3MjkyNjI1OSwiZXhwIjoxNjcyOTM3MDU5fQ.l3LqxpA7Pj8j-CUZjZURNL0gg5EZRlHONJWiKBGrITw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "title",
+									"value": "This is local NEWS",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "This is updated description - It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/posts/63b6d4b564572f0183f11de2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"63b6d4b564572f0183f11de2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DROP",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2M2I1ZTRjM2U0N2M3NzYzNjE5ZjgwMzgiLCJuYW1lIjoiQXVuZyBNeW8iLCJlbWFpbCI6ImF1bmdteW9AZ21haWwuY29tIiwicGhvbmUiOiIwOTk3MjQ5Njg3MSIsInBhc3N3b3JkIjoiJDJhJDEwJFVkbGVaT0l1NVAyOWs0amQ5S2R0Mk9lSDBHbHlQTWtwQXJCRzVzdEZMNi5kaWJueG9ZcUZhIiwiY3JlYXRlZCI6IjIwMjMtMDEtMDRUMjA6NDI6NDMuMzQ3WiIsImlhdCI6MTY3MjkyNjI1OSwiZXhwIjoxNjcyOTM3MDU5fQ.l3LqxpA7Pj8j-CUZjZURNL0gg5EZRlHONJWiKBGrITw",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/posts/63b6d5f564572f0183f11de9",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"posts",
+								"63b6d5f564572f0183f11de9"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Management",
+			"item": [
+				{
+					"name": "GET",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/639ecc42a323da9aede8fdee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"639ecc42a323da9aede8fdee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ALL",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "POST",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Than Htike Zaw\",\r\n    \"email\":\"thanhtikexaw@gmail.com\",\r\n    \"phone\":\"09700800215\",\r\n    \"password\":\"456789\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "PATCH",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"Aung Aung\",\r\n    \"email\": \"aung@gmail.com\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/639ecc42a323da9aede8fdee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"639ecc42a323da9aede8fdee"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "DROP",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/users/639ecc42a323da9aede8fdee",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"639ecc42a323da9aede8fdee"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Gallery Management",
+			"item": [
+				{
+					"name": "Single",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/Cyberpunk 2077/photomode_31082022_061851.png"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/gallery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gallery"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Multiple",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"photomode_31082022_061851.png\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/gallery",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"gallery"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Category Mangement",
+			"item": [
+				{
+					"name": "All",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single Get",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cats/63a8bf65112eb047918b2ca2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cats",
+								"63a8bf65112eb047918b2ca2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "file",
+									"contentType": "multipart/form-data",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/globe_earth_480px.png"
+								},
+								{
+									"key": "name",
+									"value": "International",
+									"contentType": "multipart/form-data",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/cats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cats"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update",
+					"request": {
+						"method": "PATCH",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "Baga",
+									"type": "text"
+								},
+								{
+									"key": "file",
+									"type": "file",
+									"src": "/C:/Users/User/Pictures/media_480px.png",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:3000/cats/63b6738d081fba63d5d3daa4",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cats",
+								"63b6738d081fba63d5d3daa4"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/cats/63a8bf65112eb047918b2ca2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"cats",
+								"63a8bf65112eb047918b2ca2"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User Manage",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"phone\":\"09972496871\",\r\n    \"password\":\"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Aung Myo\",\r\n    \"email\": \"aungmyo@gmail.com\",\r\n    \"phone\": \"09972496871\",\r\n    \"password\": \"12345678\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/users/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"users",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

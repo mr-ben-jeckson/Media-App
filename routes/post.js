@@ -16,4 +16,7 @@ router.route("/:id")
 router.route("/bycat/:id")
     .get(controller.byCatId)
 
+router.route("/byuser/:id")
+    .get(controller.byUserId)    
+
 module.exports = router;    
