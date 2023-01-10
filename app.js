@@ -53,14 +53,17 @@ app.use(fileUpload());
 //     await deleteFile(req.body.name);
 //     res.status(200).json({msg:"File Deleted"});
 // });
-
-const catRoute = require('./routes/cat');
 const userRoute = require('./routes/user');
+const catRoute = require('./routes/cat');
+const tagRoute = require('./routes/tag');
 const postRoute = require('./routes/post');
+const commentRoute = require('./routes/comment');
 
-app.use("/cats", catRoute);
-app.use("/posts", postRoute);
 app.use("/users", userRoute);
+app.use("/cats", catRoute);
+app.use("/tags", tagRoute);
+app.use("/posts", postRoute);
+app.use("/comments", commentRoute);
 
 
 // Error Handling
